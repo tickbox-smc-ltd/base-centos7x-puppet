@@ -26,6 +26,11 @@ node 'development-python3.6.vm' {
     content => '<?php echo \'<p>Hello World</p>\'; ?> ',
   }
 
+  file { '/var/www/html/info.php':
+    ensure  => file,
+    content => '<?php phpinfo(); ?>',
+  }
+
   # Create Symlink to /usr/local/bin/python3.6 & pip3.6
   file { '/usr/local/bin/python':
     ensure => 'link',

@@ -41,6 +41,8 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # Puppet Shared Folder
   config.vm.synced_folder "puppet", "/puppet"
+  # Deploy Shared Folder
+  config.vm.synced_folder "deploy", "/deploy"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -68,7 +70,7 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   #config.vm.provision "shell", inline: <<-SHELL
-  config.vm.provision "shell", path: "centos_7.x.sh"
+  #config.vm.provision "shell", path: "centos_7.x.sh"
   config.vm.provision "shell", path: "python_3.6.sh"
   #   apt-get update
   #   apt-get install -y apache2

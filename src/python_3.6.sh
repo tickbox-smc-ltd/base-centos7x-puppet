@@ -29,3 +29,16 @@ wget "${GET_PIP_URL}"
 # Then execute it using Python 3.6:
 /usr/local/bin/python3.6 get-pip.py
 
+echo "Installing python packages ..."
+#mkdir -p /home/vagrant/.pip_download_cache
+#export PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache
+#export VIRTUALENV=/home/vagrant/env
+#pip install -U pip virtualenv
+#virtualenv --system-site-packages $VIRTUALENV
+#source $VIRTUALENV/bin/activate
+/usr/local/bin/pip3.6 install -r /deploy/requirements.txt
+if [ $? -gt 0 ]; then
+    echo 2> 'Unable to install python requirements from requirements.txt'
+    exit 1
+fi
+
